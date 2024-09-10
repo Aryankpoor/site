@@ -36,16 +36,16 @@ export default function Shop({
   const [cat, setCat] = useState('all')
 
   const aItems = availableItems.filter(
-    items => items['Cost Hours'] > 0 && items['Cost Hours'] <= 10
+    items => items['Cost Hours'] = 0
   )
   const bItems = availableItems.filter(
-    items => items['Cost Hours'] > 10 && items['Cost Hours'] <= 50
+    items => items['Cost Hours'] = 0
   )
   const cItems = availableItems.filter(
-    items => items['Cost Hours'] > 50 && items['Cost Hours'] <= 100
+    items => items['Cost Hours'] = 0
   )
   const dItems = availableItems.filter(
-    items => items['Cost Hours'] > 100
+    items => items['Cost Hours'] = 0
   )
 
   useEffect(() => {
@@ -137,101 +137,11 @@ export default function Shop({
               }}
               className="slackey"
             >
-              Welcome to the shop
+              Arcade Shop is closed
             </h1>
           </Balancer>
-          <Text
-            sx={{
-              display: 'block',
-              textAlign: 'center',
-              color: '#35290F',
-              mt: 0,
-              mb: 2
-            }}
-            className="gaegu"
-            variant="subtitle"
-          >
-            Your current balance is {Math.floor(hoursBalance)} 🎟️
-          </Text>
-          <Text
-            sx={{
-              display: 'block',
-              textAlign: 'center',
-              color: '#35290F',
-              mt: 0,
-              mb: 2
-            }}
-            className="gaegu"
-            variant="caption"
-          >
-            The buy button is only available for items where you have enough
-            tickets.
-          </Text>
-          <Flex
-            sx={{
-              justifyContent: 'center',
-              gap: '10px',
-              maxWidth: ['100%', '60%', '60%'],
-              flexWrap: 'wrap',
-              margin: 'auto',
-              mb: 4
-            }}
-          >
-            <Button
-              variant="outline"
-              sx={{ border: '#09AFB4 3px dashed', color: '#09AFB4' }}
-              onClick={() => {
-                setCat('all')
-              }}
-            >
-              👀 All
-            </Button>
-            <Button
-              variant="outline"
-              sx={{ border: '#09AFB4 3px dashed', color: '#09AFB4' }}
-              onClick={() => {
-                setCat('Software Powerups')
-              }}
-            >
-              🕸️ Software Powerups
-            </Button>{' '}
-            <Button
-              variant="outline"
-              sx={{ border: '#09AFB4 3px dashed', color: '#09AFB4' }}
-              onClick={() => {
-                setCat('Art Supplies')
-              }}
-            >
-              🎨 Art Supplies
-            </Button>
-            <Button
-              variant="outline"
-              sx={{ border: '#09AFB4 3px dashed', color: '#09AFB4' }}
-              onClick={() => {
-                setCat('Embedded Devices')
-              }}
-            >
-              🕹️ Embedded Devices
-            </Button>
-            <Button
-              variant="outline"
-              sx={{ border: '#09AFB4 3px dashed', color: '#09AFB4' }}
-              onClick={() => {
-                setCat('Hardware')
-              }}
-            >
-              💻 Hardware
-            </Button>
-            <Button
-              variant="outline"
-              sx={{ border: '#09AFB4 3px dashed', color: '#09AFB4' }}
-              onClick={() => {
-                setCat('Swag')
-              }}
-            >
-              🦢 Swag
-            </Button>
-          </Flex>
+          
+         
           {cat == 'all' ? (
             <>
               <Text
@@ -243,59 +153,9 @@ export default function Shop({
                 }}
                 className="gaegu"
               >
-                Pixel Prizes: 1-10 🎟️
+                Thank you for participating in Arcade!
               </Text>
-              <ShopComponent
-                availableItems={aItems}
-                userAirtableID={userAirtableID}
-                userEmail={userEmail}
-                hoursBalance={hoursBalance}
-              />
-              <Text
-                sx={{
-                  fontSize: [4, 5],
-                  color: '#09AFB4',
-                  textAlign: 'center',
-                  display: 'block'
-                }}
-                className="gaegu"
-              >
-                Orpheus Loot: 11-50 🎟️
-              </Text>
-              <ShopComponent
-                availableItems={bItems}
-                userAirtableID={userAirtableID}
-                userEmail={userEmail}
-                hoursBalance={hoursBalance}
-              />
-              <Text
-                sx={{
-                  fontSize: [4, 5],
-                  color: '#2B8184',
-                  textAlign: 'center',
-                  display: 'block'
-                }}
-                className="gaegu"
-              >
-                Hacker Bounties: 51-100 🎟️
-              </Text>
-              <ShopComponent
-                availableItems={cItems}
-                userAirtableID={userAirtableID}
-                userEmail={userEmail}
-                hoursBalance={hoursBalance}
-              />
-              <Text
-                sx={{
-                  fontSize: [4, 5],
-                  color: '#1A696B',
-                  textAlign: 'center',
-                  display: 'block'
-                }}
-                className="gaegu"
-              >
-                Ticket Trove: 100+ 🎟️
-              </Text>
+              
               <ShopComponent
                 availableItems={dItems}
                 userAirtableID={userAirtableID}
@@ -325,41 +185,7 @@ export default function Shop({
             display: ['none', 'none', 'none', 'block']
           }}
         />
-        <img
-          src="/arcade/o2.png"
-          alt="Dino drawing"
-          sx={{
-            width: ['35%', '35%', '35%', '50%'],
-            maxWidth: '210px',
-            position: 'absolute',
-            transform: 'rotate(90deg)',
-            left: '-20px',
-            bottom: '5000px'
-          }}
-        />
-        <img
-          src="/arcade/r6.png"
-          alt="Dino!"
-          sx={{
-            width: ['35%', '35%', '35%', '50%'],
-            maxWidth: '210px',
-            position: 'absolute',
-            right: '50px',
-            bottom: '0'
-          }}
-        />
-        <img
-          src="/arcade/o7.png"
-          alt="Dino drawing"
-          sx={{
-            width: ['35%', '35%', '35%', '50%'],
-            maxWidth: '210px',
-            position: 'absolute',
-            transform: 'rotate(-90deg)',
-            right: '0px',
-            bottom: '2500px'
-          }}
-        />
+        
       </Box>
     </Box>
   )
